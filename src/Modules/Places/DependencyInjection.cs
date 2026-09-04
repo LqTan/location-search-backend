@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Places.Application.Abstractions;
+using Places.Application.Contracts;
 using Places.Application.Places.Queries.GetPlaceById;
 using Places.Application.Places.Queries.SearchPlaces;
 using Places.Infrastructure.Persistence;
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddScoped<IPlaceRepository, PlaceRepository>();
         services.AddScoped<SearchPlacesHandler>();
         services.AddScoped<GetPlaceByIdHandler>();
+        services.AddScoped<IPlacesSearchContract, PlacesSearchContract>();
         services.AddHttpClient<IPlaceProvider, HerePlaceProvider>(client =>
         {
             client.BaseAddress = new Uri("https://discover.search.hereapi.com/");            

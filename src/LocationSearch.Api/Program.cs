@@ -1,4 +1,5 @@
 using Sandbox;
+using Search;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddSandbox(
     builder.Configuration.GetConnectionString("DefaultConnection")!);
 builder.Services.AddPlaces(builder.Configuration);
+builder.Services.AddSearch();
 
 var app = builder.Build();
 
