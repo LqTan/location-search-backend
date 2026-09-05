@@ -1,3 +1,4 @@
+using Reviews;
 using Sandbox;
 using Search;
 
@@ -12,6 +13,7 @@ builder.Services.AddSandbox(
     builder.Configuration.GetConnectionString("DefaultConnection")!);
 builder.Services.AddPlaces(builder.Configuration);
 builder.Services.AddSearch();
+builder.Services.AddReviews(builder.Configuration);
 
 var app = builder.Build();
 
